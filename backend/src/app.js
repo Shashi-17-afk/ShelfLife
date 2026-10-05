@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import { requestLogger } from './middleware/logger.js';
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 
+import authRoutes from './routes/authRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -23,6 +25,9 @@ app.get('/api/health', (req, res) => {
     message: 'ShelfLife API is running',
   });
 });
+
+// API Routes
+app.use('/api/auth', authRoutes);
 
 // 404 & Error Handling Middleware
 app.use(notFoundHandler);
