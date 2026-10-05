@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "seed:librarian": "node scripts/seedLibrarian.js"
+    "seed:librarian": "node scripts/seedLibrarian.js",
+    "test:concurrency": "node scripts/verifyConcurrency.js",
+    "test:phases": "node scripts/verifyPhase2.js && node scripts/verifyPhase3.js && node scripts/verifyPhase4.js && node scripts/verifyPhase5.js && node scripts/verifyConcurrency.js"
   },
   "keywords": [
     "library",
