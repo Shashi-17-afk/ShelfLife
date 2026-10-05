@@ -8,9 +8,15 @@ export const borrowBookSchema = z.object({
 });
 
 export const returnBookSchema = z.object({
-  body: z.object({
-    borrowRecordId: z.string().trim().regex(/^[0-9a-fA-F]{24}$/, 'Invalid BorrowRecord MongoDB ObjectId format').optional(),
-    bookId: z.string().trim().regex(/^[0-9a-fA-F]{24}$/, 'Invalid Book MongoDB ObjectId format').optional(),
-    memberId: z.string().trim().regex(/^[0-9a-fA-F]{24}$/, 'Invalid Member MongoDB ObjectId format').optional(),
-  }),
+  params: z
+    .object({
+      borrowId: z.string().trim().regex(/^[0-9a-fA-F]{24}$/, 'Invalid BorrowRecord MongoDB ObjectId format').optional(),
+    })
+    .optional(),
+  body: z
+    .object({
+      borrowRecordId: z.string().trim().regex(/^[0-9a-fA-F]{24}$/, 'Invalid BorrowRecord MongoDB ObjectId format').optional(),
+      borrowId: z.string().trim().regex(/^[0-9a-fA-F]{24}$/, 'Invalid BorrowRecord MongoDB ObjectId format').optional(),
+    })
+    .optional(),
 });

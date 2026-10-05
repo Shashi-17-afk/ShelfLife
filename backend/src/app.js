@@ -7,6 +7,8 @@ import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 import authRoutes from './routes/authRoutes.js';
 import bookRoutes from './routes/bookRoutes.js';
 import memberRoutes from './routes/memberRoutes.js';
+import borrowRoutes from './routes/borrowRoutes.js';
+import returnRoutes from './routes/returnRoutes.js';
 
 dotenv.config();
 
@@ -32,6 +34,8 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/members', memberRoutes);
+app.use('/api/borrow', borrowRoutes);
+app.use('/api/return', returnRoutes);
 
 // 404 & Error Handling Middleware
 app.use(notFoundHandler);
