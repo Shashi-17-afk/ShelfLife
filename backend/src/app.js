@@ -5,6 +5,8 @@ import { requestLogger } from './middleware/logger.js';
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 
 import authRoutes from './routes/authRoutes.js';
+import bookRoutes from './routes/bookRoutes.js';
+import memberRoutes from './routes/memberRoutes.js';
 
 dotenv.config();
 
@@ -28,6 +30,8 @@ app.get('/api/health', (req, res) => {
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/books', bookRoutes);
+app.use('/api/members', memberRoutes);
 
 // 404 & Error Handling Middleware
 app.use(notFoundHandler);
