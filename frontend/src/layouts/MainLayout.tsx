@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { BookOpen, Library, ArrowRightLeft, LogOut, User } from 'lucide-react';
+import { BookOpen, Library, ArrowRightLeft, History, LogOut, User } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import styles from './MainLayout.module.css';
 
@@ -43,6 +43,16 @@ export const MainLayout: React.FC = () => {
               >
                 <ArrowRightLeft size={18} />
                 <span>Issue Book</span>
+              </NavLink>
+
+              <NavLink
+                to="/history"
+                className={({ isActive }) =>
+                  `${styles.navLink} ${isActive ? styles.activeNavLink : ''}`
+                }
+              >
+                <History size={18} />
+                <span>Member History</span>
               </NavLink>
             </nav>
           </div>

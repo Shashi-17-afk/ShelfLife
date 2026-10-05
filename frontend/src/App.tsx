@@ -40,6 +40,8 @@ export const App: React.FC = () => {
             <Route index element={<Navigate to="/books" replace />} />
             <Route path="books" element={<BooksPage />} />
             <Route path="issue" element={<IssuePage />} />
+            <Route path="history" element={<MemberHistoryPage />} />
+            <Route path="members/history" element={<MemberHistoryPage />} />
             <Route path="members/:memberId/history" element={<MemberHistoryPage />} />
           </Route>
 
